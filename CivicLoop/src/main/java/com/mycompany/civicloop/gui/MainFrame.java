@@ -5,14 +5,10 @@ import civicloop.model.User;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-
-
 /**
  * Main dashboard after login.
  * Contains a JTabbedPane hosting all 5 module panels plus a profile header.
  */
-
-
 
 public class MainFrame extends JFrame {
     private DataStore dataStore;
@@ -85,9 +81,10 @@ public class MainFrame extends JFrame {
         trustPanel.refresh();
         feedPanel.refresh();
     }
-// Convenience getters for panels  
+// Convenience getters for panels
 
 
+    
     public DataStore getDataStore() { return dataStore; }
     public User getCurrentUser() { return currentUser; }
 }

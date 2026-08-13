@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class DataStore implements Serializable {
 
 
-    private HashMap<String, User> users;
+ private HashMap<String, User> users;
     private ArrayList<Item> items;
     private ArrayList<Service> services;
     private ArrayList<TimeCreditTransaction> transactions;
@@ -75,9 +75,7 @@ private String generateUserId() {
      * Core exchange logic for item borrowing (follows activity diagram).
      * Borrower spends TimeCredits, owner earns them. Trust scores increase.
      */
-
     public String requestItem(String itemId, User borrower, double hours) {
-
         Item item = findItemById(itemId);
         if (item == null) return "Item not found.";
         if (!item.isAvailable()) return "Item is already borrowed.";
@@ -156,7 +154,7 @@ private String generateUserId() {
         return null;
     }
 
-    
+    // ---- Trust & Reputation (Member 4) ----
     public void reportLateReturn(String userId) {
         TrustScoreManager tm = trustManagers.get(userId);
         if (tm != null) {
@@ -194,8 +192,7 @@ private String generateUserId() {
         }
     }
 
-    
-
+     // ---- Transactions (Member 3) ----
     public ArrayList<TimeCreditTransaction> getTransactions() { return transactions; }
 
     // ---- File Persistence (java.io serialisation) ----

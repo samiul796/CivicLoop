@@ -6,17 +6,6 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
-<<<<<<< HEAD
-=======
-
-
-/**
- * Panel for adding items and requesting to borrow them.
- */
-
-
-
->>>>>>> main
 public class ItemPanel extends JPanel {
     private MainFrame parent;
     private JTable itemTable;
@@ -44,21 +33,17 @@ public class ItemPanel extends JPanel {
     }
 
     private void addItem() {
-
         String name = JOptionPane.showInputDialog(this, "Enter item name:");
         if (name == null || name.trim().isEmpty()) return;
         parent.getDataStore().addItem(name.trim(), parent.getCurrentUser());
         parent.refreshAll();
-        
     }
 
     private void requestItem() {
-
         int row = itemTable.getSelectedRow();
         if (row == -1) {
             JOptionPane.showMessageDialog(this, "Select an item first.");
             return;
-
         }
         String itemId = (String) tableModel.getValueAt(row, 0);
         String hoursStr = JOptionPane.showInputDialog(this, "How many hours to borrow?");
@@ -76,13 +61,7 @@ public class ItemPanel extends JPanel {
         }
     }
 
-<<<<<<< HEAD
     public void refreshTable() {
-=======
-
-
-public void refreshTable() {
->>>>>>> main
         tableModel.setRowCount(0);
         for (Item i : parent.getDataStore().getItems()) {
             User owner = parent.getDataStore().findUser(i.getOwnerId());
